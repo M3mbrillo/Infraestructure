@@ -1,0 +1,23 @@
+variant: fcos
+version: 1.4.0
+passwd:
+  users:
+    - name: core
+      ssh_authorized_keys:
+        - ${SSH_RSA}
+storage:
+  files:
+    - path: /etc/NetworkManager/system-connections/ens0.nmconnection
+      mode: 0600
+      contents:
+        inline: |
+          [connection]
+          id=ens0p3
+          type=ethernet
+          interface-name=ens0
+          [ipv4]
+          address1=10.0.73.100/24,10.0.73.1
+          dns=8.8.8.8;
+          dns-search=
+          may-fail=false
+          method=manual

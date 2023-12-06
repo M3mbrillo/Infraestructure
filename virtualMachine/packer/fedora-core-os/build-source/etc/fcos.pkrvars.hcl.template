@@ -1,0 +1,9 @@
+iso_url="${iso_url}"
+iso_signature="${iso_signature}"
+iso_sha256="${iso_sha256}"
+ssh_username="${ssh_username}"
+ssh_private_key_file="build-source/ssh-keypar/user-fcos"
+
+ram_memory="2048"
+cpus="2"
+disk_size="10000"

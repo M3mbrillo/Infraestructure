@@ -1,0 +1,4 @@
+packer_cache/**
+build-source/ssh-keypar/user-fcos
+build-source/ssh-keypar/fcos-user
+output-fedora-core-os

@@ -1,0 +1,27 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7eDa10Qmpqf+W1sw2hPDTwr0f8ef+h9+rkZHTNwNWhkNYFVm5ypIGy76P+pUVYLnhOvkfMGCrGtU+8S6OT/z1ysfic6al/fQpR+tpmsVyt2GB9fltbrlKc77akwDTTKc1HB2ILhzm1rznD5VL4bsYHW4hDKpJFhlFnlY2NVs4oxySnDIRl7C1PSCI9JCvhBThYyNxw3Ab1eqiuWUFLaxQMHUvRrsiFXKkL/BHrMhmVstYr3i7n7fJ0buDIZxc94L2gxZlNXGrhCxvK0/K7gvWIz/qt4rIooOU/E+/qzxcNu70yvuBBAZUGVAMD+8rw62/+881UlPCR1XzrlTmDIHaijhHsL1mgC+rvNci86Ggc4d+JG6sIVYgsgJ19oWumblu6M/8RBy7NKKfhXLmO2Udr9nusfZomLYSxq83PNioZZ/ZiodtE52LrGTuk/mwUZCAVJxFDOJFsmKnyXzkvYb926fZpM1bDWCe1+WcicClQD83/bU8xVbIz9gnU6cBcZE= m3mbrillo@WKSTUF01"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "files": [
+      {
+        "path": "/etc/NetworkManager/system-connections/ens0.nmconnection",
+        "contents": {
+          "compression": "",
+          "source": "data:,%5Bconnection%5D%0Aid%3Dens0p3%0Atype%3Dethernet%0Ainterface-name%3Dens0%0A%5Bipv4%5D%0Aaddress1%3D10.0.73.100%2F24%2C10.0.73.1%0Adns%3D8.8.8.8%3B%0Adns-search%3D%0Amay-fail%3Dfalse%0Amethod%3Dmanual"
+        },
+        "mode": 384
+      }
+    ]
+  }
+}
