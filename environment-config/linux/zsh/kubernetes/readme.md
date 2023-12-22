@@ -2,7 +2,7 @@
 
 ## Oh-my-zsh
 ```sh 
-plugins=(git ufw zsh-fzf-history-search zsh-autosuggestions zsh-syntax-highlighting kubectl)
+plugins=(kubectl)
 ```
 
 ## Helpers
