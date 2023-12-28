@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-healthcheck-nginx-ingress
+spec:
+  selector:
+    matchLabels:
+      app: app-healthcheck-nginx-ingress
+  template:
+    metadata:
+      labels:
+        app: app-healthcheck-nginx-ingress
+    spec:
+      containers:
+      - name: app-echo-server
+        image: jmalloc/echo-server
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "50Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 8080
