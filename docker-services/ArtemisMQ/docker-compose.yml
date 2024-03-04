@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+  artemisMQ:
+    image: apache/activemq-artemis:2.32.0-alpine
+    container_name: ArtemisMQ
+    restart: unless-stopped
+    environment:
+      ARTEMIS_USER: ${ARTEMIS_USER:-artemis}
+      ARTEMIS_PASSWORD: ${ARTEMIS_PASSWORD:-artemis}
+    ports:
+      - ${ARTEMIS_PORT:-8161}:8161
