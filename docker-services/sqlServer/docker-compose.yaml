@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-CU7-ubuntu-20.04
+    container_name: sqlserver-docker
+    restart: no
+    ports:
+      - '1433:1433'
+      - '192.168.88.1:1433:1433'
+    environment:
+      - ACCEPT_EULA=${ACCEPT_EULA:-Y}
+      - SA_PASSWORD=${SA_PASSWORD}
+      - MSSQL_PID=${MSSQL_PID:-Developer}

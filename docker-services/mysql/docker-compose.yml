@@ -4,17 +4,22 @@ services:
     image: mysql:${MYSQL_VERSION:-5.7}
     restart: unless-stopped
     user: ${PUID:-1000}:${GUID:-1000}
+    networks:
+      - verifarma-network
     environment:      
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-mauFJcuf5dhRMQrjj}
       - MYSQL_USER=${MYSQL_USER:-user}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD:-mauFJcuf5dhRMQrjj}
       - MYSQL_ROOT_HOST=%
     command: --sql_mode=""
     ports:
-      - ${MYSQL_PORT:-3316}:3306
+      - ${MYSQL_PORT:-3306}:3306
     expose:
       - 3306
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
       - ./docker/mysql/conf.d:/etc/mysql/conf.d
       - ./.db:/backup
+
+networks:
+  verifarma-network:
