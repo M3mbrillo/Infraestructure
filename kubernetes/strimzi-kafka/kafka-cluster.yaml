@@ -19,6 +19,8 @@ spec:
         port: 9100
         type: ingress
         tls: true
+        authentication:
+          type: tls
         configuration:
           class: nginx
           bootstrap:
@@ -39,7 +41,6 @@ spec:
       type: simple
       superUsers:
         - CN=professor-birch
-        - CN=super-user
   zookeeper:
     replicas: 1
     storage:

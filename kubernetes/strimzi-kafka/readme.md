@@ -15,9 +15,11 @@ example of configuration:
 bootstrap.servers=bootstrap.kafka.rke2-queen:443
 security.protocol=SSL
 ssl.endpoint.identification.algorithm=
-ssl.key.location=./cert-tls/user/professor-birch-user.key
-ssl.certificate.location=./cert-tls/user/professor-birch-user.crt
-ssl.ca.location=./cert-tls/cluster/hoen-cluster-cluster-ca-cert.crt
+
+ssl.keystore.location=/home/m3mbrillo/source/_personal/Infraestructure/kubernetes/strimzi-kafka/cert-tls/user/professor-birch-user.p12
+ssl.keystore.password=fT0AQz8oygZfk3gOF8B3TFJbPFE5yjh3
+
+ssl.ca.location=/home/m3mbrillo/source/_personal/Infraestructure/kubernetes/strimzi-kafka/cert-tls/cluster/hoen-cluster-cluster-ca-cert.crt
 ```
 
 
@@ -32,5 +34,7 @@ Expected:
 Metadata for all topics (from broker -1: ssl://bootstrap.kafka.rke2-queen:443/bootstrap):
  1 brokers:
   broker 0 at broker-0.kafka.rke2-queen:443 (controller)
- 0 topics:
+ 1 topics:
+  topic "default-any-topic" with 1 partitions:
+    partition 0, leader 0, replicas: 0, isrs: 0
 ```
