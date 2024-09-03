@@ -1,7 +1,20 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: default-any-topic
+  name: default-first-topic
+  labels:
+    strimzi.io/cluster: hoen-cluster
+spec:
+  partitions: 1
+  replicas: 1
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: default-second-topic
   labels:
     strimzi.io/cluster: hoen-cluster
 spec:

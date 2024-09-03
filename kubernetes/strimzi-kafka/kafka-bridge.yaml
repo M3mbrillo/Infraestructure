@@ -1,0 +1,43 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  name: bridge-user
+  labels:
+    strimzi.io/cluster: hoen-cluster
+spec:
+  authentication:
+    type: tls
+  authorization:
+    type: simple
+    acls:
+    # Topics and groups used by the HTTP clients through the HTTP Bridge
+    # Change to match the topics used by your HTTP clients
+    - resource:
+        type: group
+        name: "*"
+      operation: All
+    - resource:
+        type: topic
+        name: '*'
+      operation: All
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaBridge
+metadata:
+  name: hoen-bridge
+spec:
+  replicas: 1
+  bootstrapServers: hoen-cluster-kafka-bootstrap:9093
+  http:
+    port: 8080
+  tls:
+    trustedCertificates:
+    - secretName: hoen-cluster-cluster-ca-cert
+      certificate: ca.crt
+  authentication:
+    type: tls
+    certificateAndKey:
+      secretName: bridge-user
+      certificate: user.crt
+      key: user.key
+
