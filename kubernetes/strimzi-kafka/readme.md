@@ -1,5 +1,13 @@
 
 pre-requisite:
+
+Add strimzi definition + controller
+```sh
+k create namespace kafka
+k create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
+```
+
+
 enable passthrough nginx controller: edit ingress-nginx-controller
 
 add: --enable-ssl-passthrough
@@ -25,8 +33,8 @@ add: --enable-ssl-passthrough
 
 Create a simple ephimeral cluster
 ```sh
-k apply -f kafka-cluster.yaml
-k apply -f user.yaml
+k -n kafka apply -f kafka-cluster.yaml
+k -n kafka apply -f user.yaml
 
 ./extract-secrects.sh hoen-cluster professor-birch
 ```
@@ -66,13 +74,13 @@ Metadata for all topics (from broker -1: ssl://bootstrap.kafka.rke2-queen:443/bo
 Enable kafka bridge:
 
 ```sh
-k apply -f kafka-bridge.yaml
+k -n kafka apply -f kafka-bridge.yaml
 
 # expose bridge through https 
-k apply -f ingress-hoen-bridge.yaml
+k -n kafka apply -f ingress-hoen-bridge.yaml
 
 # dummy topics to test
-k apply -f kafka-topic.yaml
+k -n kafka apply -f kafka-topic.yaml
 ```
 
 
