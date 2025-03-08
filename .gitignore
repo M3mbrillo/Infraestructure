@@ -4,3 +4,5 @@ docker-services/localstack/volumes/*
 
 
 docker-services/mongodb/dbdata8/
+
+docker-services/nginx-proxy-https/certs/
