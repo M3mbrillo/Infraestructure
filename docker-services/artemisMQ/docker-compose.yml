@@ -5,7 +5,8 @@ services:
     container_name: ArtemisMQ
     restart: unless-stopped
     environment:
-      ARTEMIS_USER: ${ARTEMIS_USER:-artemis}
-      ARTEMIS_PASSWORD: ${ARTEMIS_PASSWORD:-artemis}
+      ARTEMIS_USER: ${ARTEMIS_USER:-admin}
+      ARTEMIS_PASSWORD: ${ARTEMIS_PASSWORD:-admin}
     ports:
       - ${ARTEMIS_PORT:-8161}:8161
+      - "61616:61616"
