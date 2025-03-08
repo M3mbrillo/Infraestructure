@@ -1,0 +1,8 @@
+kafka:
+  clusters:
+    -
+      name: hoen-cluster
+      bootstrapServers: :29091
+      SSL:
+        KAFKA_CLUSTERS_0_SSL_TRUSTSTORELOCATION:
+        TRUSTSTOREPASSWORD: 
