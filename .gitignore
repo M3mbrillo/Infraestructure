@@ -1,1 +1,6 @@
 docker-services/InspIRCd/.env
+
+docker-services/localstack/volumes/*
+
+
+docker-services/mongodb/dbdata8/

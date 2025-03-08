@@ -4,14 +4,12 @@ services:
     image: mysql:${MYSQL_VERSION:-5.7}
     restart: unless-stopped
     user: ${PUID:-1000}:${GUID:-1000}
-    networks:
-      - verifarma-network
     environment:      
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-mauFJcuf5dhRMQrjj}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
       - MYSQL_USER=${MYSQL_USER:-user}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-mauFJcuf5dhRMQrjj}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-user}
       - MYSQL_ROOT_HOST=%
-    command: --sql_mode=""
+    command: --sql_mode="" --lower_case_table_names=1 --max_allowed_packet=1073741824
     ports:
       - ${MYSQL_PORT:-3306}:3306
     expose:
@@ -21,5 +19,22 @@ services:
       - ./docker/mysql/conf.d:/etc/mysql/conf.d
       - ./.db:/backup
 
-networks:
-  verifarma-network:
+  mysql-docker-8:
+        container_name: mysql-docker-8
+        image: mysql:8.0-bookworm
+        restart: unless-stopped
+        user: ${PUID:-1000}:${GUID:-1000}
+        environment:      
+          - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
+          - MYSQL_USER=${MYSQL_USER:-user}
+          - MYSQL_PASSWORD=${MYSQL_PASSWORD:-user}
+          - MYSQL_ROOT_HOST=%
+        command: --sql_mode="" --lower_case_table_names=1 --max_allowed_packet=1073741824
+        ports:
+          - ${MYSQL_PORT:-3306}:3306
+        expose:
+          - 3306
+        volumes:
+          - ./docker/mysql-8/data:/var/lib/mysql
+          - ./docker/mysql-8/conf.d:/etc/mysql/conf.d
+          - ./docker/mysql-8/db:/backup
