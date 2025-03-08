@@ -6,3 +6,7 @@ docker-services/localstack/volumes/*
 docker-services/mongodb/dbdata8/
 
 docker-services/nginx-proxy-https/certs/
+
+kubernetes/strimzi-kafka/auth
+
+kubernetes/strimzi-kafka/.vscode/
